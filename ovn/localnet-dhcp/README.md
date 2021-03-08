@@ -54,9 +54,9 @@ overlay topo
 ## build image
 
 ```
-git clone https://github.com/cao19881125/ovn_lab.git
-cd ovn_lab/docker
-./build_v2.sh
+$ cd ovn-examples/docker
+$ git submodule update --init
+$ make build
 ```
 
 
@@ -69,7 +69,7 @@ cd ../lesson/ovn/localnet
 
 ## 创建拓扑
 ```
-./start.sh
+./setup.sh
 ```
 
 ## 测试
@@ -212,4 +212,5 @@ exit
 ```
 
 参考:
-[external port](https://github.com/ovn-org/ovn/commit/96080083581275afaec8bc281d6a648aff7ef39e)
+[ovn external port](https://github.com/ovn-org/ovn/commit/96080083581275afaec8bc281d6a648aff7ef39e)
+[external port](http://dani.foroselectronica.es/ovn-external-ports-604/)
