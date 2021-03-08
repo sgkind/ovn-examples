@@ -1,0 +1,6 @@
+[submodule "docker/ovs"]
+	path = docker/ovs
+	url = https://github.com/openvswitch/ovs.git
+[submodule "docker/ovn"]
+	path = docker/ovn
+	url = https://github.com/ovn-org/ovn.git
