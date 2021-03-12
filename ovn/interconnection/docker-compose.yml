@@ -1,0 +1,128 @@
+version: '3.0'
+services:
+  east-ctrl:
+    image: ovn:v3
+    container_name: east-ctrl
+    hostname: east-ctrl
+    command: bash -c 'while true; do sleep 10; done'
+    privileged: true
+    environment:
+      TERM: linux
+      MY_IP: 10.10.0.10
+    ports:
+    - "16640:6640"
+    - "16641:6641"
+    - "16642:6642"
+    networks:
+      ovnnet_east:
+        ipv4_address: 10.10.0.10
+      ovnnet_conn:
+        ipv4_address: 10.11.0.2
+    volumes:
+    - .:/root
+  east-hv1:
+    image: ovn:v3
+    container_name: east-hv1
+    hostname: east-hv1
+    command: bash -c 'while true; do sleep 10; done'
+    privileged: true
+    environment:
+      TERM: linux
+      OVN_SERVER: 10.10.0.10
+      MY_IP: 10.10.0.11
+    networks:
+      ovnnet_east:
+        ipv4_address: 10.10.0.11
+    volumes:
+    - .:/root
+  east-ic-gw1:
+    image: ovn:v3
+    container_name: east-ic-gw1
+    hostname: east-ic-gw1
+    command: bash -c 'while true; do sleep 10; done'
+    privileged: true
+    environment:
+      TERM: linux
+      OVN_SERVER: 10.10.0.10
+      MY_IP: 10.10.0.12
+    networks:
+      ovnnet_east:
+        ipv4_address: 10.10.0.12
+      ovnnet_conn:
+        ipv4_address: 10.11.0.3
+    volumes:
+    - .:/root
+  west-ctrl:
+    image: ovn:v3
+    container_name: west-ctrl
+    hostname: west-ctrl
+    command: bash -c 'while true; do sleep 10; done'
+    privileged: true
+    environment:
+      TERM: linux
+      MY_IP: 10.10.0.20
+    ports:
+      - "26640:6640"
+      - "26641:6641"
+      - "26642:6642"
+    networks:
+      ovnnet_east:
+        ipv4_address: 10.10.0.20
+      ovnnet_conn:
+        ipv4_address: 10.11.0.4
+    volumes:
+    - .:/root
+  west-hv1:
+    image: ovn:v3
+    container_name: west-hv1
+    hostname: west-hv1
+    command: bash -c 'while true; do sleep 10; done'
+    privileged: true
+    environment:
+      TERM: linux
+      OVN_SERVER: 10.10.0.20
+      MY_IP: 10.10.0.21
+    networks:
+      ovnnet_east:
+        ipv4_address: 10.10.0.21
+    volumes:
+    - .:/root
+  west-ic-gw1:
+    image: ovn:v3
+    container_name: west-ic-gw1
+    hostname: west-ic-gw1
+    command: bash -c 'while true; do sleep 10; done'
+    privileged: true
+    environment:
+      TERM: linux
+      OVN_SERVER: 10.10.0.20
+      MY_IP: 10.10.0.22
+    networks:
+      ovnnet_east:
+        ipv4_address: 10.10.0.22
+      ovnnet_conn:
+        ipv4_address: 10.11.0.5
+    volumes:
+    - .:/root   
+  ovn-ic:
+    image: ovn:v3
+    container_name: ovn-ic
+    hostname: ovn-ic
+    command: bash -c 'while true; do sleep 10; done'
+    privileged: true
+    environment:
+      TERM: linux
+      MY_ID: 10.11.0.6
+    networks:
+      ovnnet_conn:
+        ipv4_address: 10.11.0.6
+    volumes:
+    - .:/root
+
+networks:
+  ovnnet_east:
+    external: true
+  ovnnet_west:
+    external: true
+  ovnnet_conn:
+    external: true
