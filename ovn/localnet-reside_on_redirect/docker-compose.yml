@@ -33,7 +33,6 @@ services:
         ipv4_address: 10.10.0.20
       ovnnet_outer:
         ipv4_address: 10.20.0.20
-      ovnnet_physical:
     volumes:
       - ./scripts:/root
   ovn-gw2:
@@ -51,7 +50,6 @@ services:
         ipv4_address: 10.10.0.30
       ovnnet_outer:
         ipv4_address: 10.20.0.30
-      ovnnet_physical:
     volumes:
       - ./scripts:/root
   ovn-hv1:
@@ -67,7 +65,7 @@ services:
     networks:
       ovnnet_local:
         ipv4_address: 10.10.0.40
-      ovnnet_physical:
+      ovnnet_outer:
     volumes:
       - ./scripts:/root
   ovn-hv2:
@@ -83,7 +81,7 @@ services:
     networks:
       ovnnet_local:
         ipv4_address: 10.10.0.50
-      ovnnet_physical:
+      ovnnet_outer:
     volumes:
       - ./scripts:/root
   ovn-outer:
@@ -99,7 +97,7 @@ services:
     ports:
       - "26640:6640"
     networks:
-      ovnnet_physical:
+      ovnnet_outer:
     volumes:
       - ./scripts:/root
     
@@ -108,6 +106,4 @@ networks:
   ovnnet_local:
     external: true
   ovnnet_outer:
-    external: true
-  ovnnet_physical:
     external: true

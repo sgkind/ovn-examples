@@ -39,8 +39,8 @@ function add_vm2() {
 add_vm1
 add_vm2
 
-ovs-vsctl --may-exist add-br br-ext1
-ovs-vsctl br-set-external-id br-ext1 bridge-id br-ext1
-ovs-vsctl add-port br-ext1 eth1
+ovs-vsctl --may-exist add-br br-ext
+ovs-vsctl br-set-external-id br-ext bridge-id br-ext
+ovs-vsctl add-port br-ext eth1
 
-ovs-vsctl set open . external-ids:ovn-bridge-mappings=ext1:br-ext1
+ovs-vsctl set open . external-ids:ovn-bridge-mappings=ext:br-ext

@@ -19,8 +19,4 @@ ovs-vsctl br-set-external-id br-ext bridge-id br-ext
 ovs-vsctl br-set-external-id br-int bridge-id br-int
 ovs-vsctl add-port br-ext eth1
 
-ovs-vsctl --may-exist add-br br-ext1
-ovs-vsctl br-set-external-id br-ext1 bridge-id br-ext1
-ovs-vsctl add-port br-ext1 eth2
-
-ovs-vsctl set open . external-ids:ovn-bridge-mappings=ext:br-ext,ext1:br-ext1
+ovs-vsctl set open . external-ids:ovn-bridge-mappings=ext:br-ext

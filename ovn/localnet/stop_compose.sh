@@ -9,4 +9,3 @@ done
 
 docker network rm ovnnet_local
 docker network rm ovnnet_outer
-docker network rm ovnnet_physical
