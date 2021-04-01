@@ -24,4 +24,5 @@ ovs-vsctl br-set-external-id br-ext1 bridge-id br-ext1
 ovs-vsctl add-port br-ext1 eth2
 
 ovs-vsctl set open . external-ids:ovn-bridge-mappings=ext:br-ext,ext1:br-ext1
-ovs-vsctl set open . external-ids:ovn-chassis-mac-mappings="ext:aa:bb:cc:dd:ee:44:ext1:aa:bb:cc:dd:ee:66"
+
+#ovs-vsctl set open . external-ids:ovn-chassis-mac-mappings="ext1:aa:bb:cc:dd:ee:44,ext:aa:bb:cc:dd:ee:66"

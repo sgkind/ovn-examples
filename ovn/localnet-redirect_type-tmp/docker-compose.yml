@@ -99,7 +99,7 @@ services:
     ports:
       - "26640:6640"
     networks:
-      ovnnet_outer:
+      ovnnet_physical:
     volumes:
       - ./scripts:/root
     
