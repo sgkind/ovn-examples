@@ -62,6 +62,12 @@ ovn-nbctl lsp-set-addresses vm3 "00:00:01:01:02:08 192.168.1.4"
 ovn-nbctl lsp-add internal2-switch vm4
 ovn-nbctl lsp-set-addresses vm4 "00:00:01:01:02:09 192.168.2.4"
 
+ovn-nbctl lsp-add internal1-switch vm5
+ovn-nbctl lsp-set-addresses vm5 "00:00:01:01:02:14 192.168.1.20"
+
+ovn-nbctl lsp-add internal2-switch vm6
+ovn-nbctl lsp-set-addresses vm6 "00:00:01:01:02:15 192.168.2.20"
+
 ovn-nbctl lsp-add internal1-switch internal1-localnet "" 10
 ovn-nbctl lsp-set-addresses internal1-localnet unknown
 ovn-nbctl lsp-set-type internal1-localnet localnet

@@ -84,6 +84,22 @@ services:
       ovnnet_outer:
     volumes:
       - ./scripts:/root
+  ovn-worker3:
+    image: sunguanke/ovn:v3
+    container_name: ovn-worker3
+    hostname: ovn-worker3
+    command: bash -c 'while true; do sleep 10; done'
+    privileged: true
+    environment:
+      TERM: linux
+      OVN_SERVER: 10.10.0.10
+      MY_IP: 10.10.0.51
+    networks:
+      ovnnet_local:
+        ipv4_address: 10.10.0.51
+      ovnnet_outer:
+    volumes:
+      - ./scripts:/root
   ovn-outer:
     image: sunguanke/ovn:v3
     container_name: ovn-outer
