@@ -1,6 +1,6 @@
 #!/bin/bash
 
-containers=(ovn-ctrl ovn-gw1 ovn-gw2 ovn-hv1 ovn-hv2 ovn-outer)
+containers=(ovn-master ovn-gateway1 ovn-gateway2 ovn-worker1 ovn-worker2 ovn-outer)
 
 for container in ${containers[@]};do
     docker stop $container

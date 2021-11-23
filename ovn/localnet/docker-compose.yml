@@ -1,9 +1,9 @@
 version: '2'
 services:
   ovn-ctrl:
-    image: ovn:v3
-    container_name: ovn-ctrl
-    hostname: ovn-ctrl
+    image: sunguanke/ovn:v3
+    container_name: ovn-master
+    hostname: ovn-master
     command: bash -c 'while true; do sleep 10;done'
     privileged: true
     environment: 
@@ -18,10 +18,10 @@ services:
         ipv4_address: 10.10.0.10
     volumes:
       - ./scripts:/root
-  ovn-gw1:
-    image: ovn:v3
-    container_name: ovn-gw1
-    hostname: ovn-gw1
+  ovn-gateway1:
+    image: sunguanke/ovn:v3
+    container_name: ovn-gateway1
+    hostname: ovn-gateway1
     command: bash -c 'while true; do sleep 10; done'
     privileged: true
     environment: 
@@ -35,10 +35,10 @@ services:
         ipv4_address: 10.20.0.20
     volumes:
       - ./scripts:/root
-  ovn-gw2:
-    image: ovn:v3
-    container_name: ovn-gw2
-    hostname: ovn-gw2
+  ovn-gateway2:
+    image: sunguanke/ovn:v3
+    container_name: ovn-gateway2
+    hostname: ovn-gateway2
     command: bash -c 'while true; do sleep 10; done'
     privileged: true
     environment: 
@@ -52,10 +52,10 @@ services:
         ipv4_address: 10.20.0.30
     volumes:
       - ./scripts:/root
-  ovn-hv1:
-    image: ovn:v3
-    container_name: ovn-hv1
-    hostname: ovn-hv1
+  ovn-worker1:
+    image: sunguanke/ovn:v3
+    container_name: ovn-worker1
+    hostname: ovn-worker1
     command: bash -c 'while true; do sleep 10; done'
     privileged: true
     environment: 
@@ -68,10 +68,10 @@ services:
       ovnnet_outer:
     volumes:
       - ./scripts:/root
-  ovn-hv2:
-    image: ovn:v3
-    container_name: ovn-hv2
-    hostname: ovn-hv2
+  ovn-worker2:
+    image: sunguanke/ovn:v3
+    container_name: ovn-worker2
+    hostname: ovn-worker2
     command: bash -c 'while true; do sleep 10; done'
     privileged: true
     environment: 
@@ -85,7 +85,7 @@ services:
     volumes:
       - ./scripts:/root
   ovn-outer:
-    image: ovn:v3
+    image: sunguanke/ovn:v3
     container_name: ovn-outer
     hostname: ovn-outer
     command: bash -c 'while true;do sleep 10;done'
